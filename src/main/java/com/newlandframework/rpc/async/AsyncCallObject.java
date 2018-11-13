@@ -23,6 +23,8 @@ package com.newlandframework.rpc.async;
  * @since 2017/3/22
  */
 public interface AsyncCallObject {
+	
     AsyncCallStatus _getStatus();
+    
 }
 

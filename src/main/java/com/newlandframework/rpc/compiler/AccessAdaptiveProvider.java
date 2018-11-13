@@ -32,6 +32,7 @@ import java.lang.reflect.InvocationTargetException;
  * @since 2017/3/30
  */
 public class AccessAdaptiveProvider extends AbstractAccessAdaptive implements AccessAdaptive {
+	
     @Override
     protected Class<?> doCompile(String clsName, String javaSource) throws Throwable {
         File tempFileLocation = Files.createTempDir();

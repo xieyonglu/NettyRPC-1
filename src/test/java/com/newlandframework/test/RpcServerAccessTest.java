@@ -33,7 +33,8 @@ import java.io.Reader;
  */
 public class RpcServerAccessTest {
 
-    public static void main(String[] args) {
+    @SuppressWarnings("resource")
+	public static void main(String[] args) {
         try {
             DefaultResourceLoader resource = new DefaultResourceLoader();
             Reader input = new InputStreamReader(resource.getResource("AccessProvider.tpl").getInputStream(), "UTF-8");

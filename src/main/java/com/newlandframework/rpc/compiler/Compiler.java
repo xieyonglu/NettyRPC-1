@@ -23,6 +23,8 @@ package com.newlandframework.rpc.compiler;
  * @since 2017/3/30
  */
 public interface Compiler {
+	
     Class<?> compile(String code, ClassLoader classLoader);
+    
 }
 

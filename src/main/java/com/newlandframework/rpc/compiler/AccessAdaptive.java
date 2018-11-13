@@ -23,7 +23,9 @@ package com.newlandframework.rpc.compiler;
  * @since 2017/3/30
  */
 public interface AccessAdaptive {
+	
     Object invoke(String code, String method, Object[] args);
+    
 }
 
 

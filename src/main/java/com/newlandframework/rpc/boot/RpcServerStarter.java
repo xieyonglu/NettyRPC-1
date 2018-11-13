@@ -24,9 +24,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @blogs http://www.cnblogs.com/jietang/
  * @since 2016/10/7
  */
+@SuppressWarnings("resource")
 public class RpcServerStarter {
-    public static void main(String[] args) {
+    
+	public static void main(String[] args) {
         new ClassPathXmlApplicationContext("classpath:rpc-invoke-config-server.xml");
     }
+	
 }
 
