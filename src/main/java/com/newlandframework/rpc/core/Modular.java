@@ -25,6 +25,8 @@ import com.newlandframework.rpc.model.MessageRequest;
  * @since 2018/2/1
  */
 public interface Modular {
+	
     <T> ModuleProvider<T> invoke(ModuleInvoker<T> invoker, MessageRequest request);
+    
 }
 

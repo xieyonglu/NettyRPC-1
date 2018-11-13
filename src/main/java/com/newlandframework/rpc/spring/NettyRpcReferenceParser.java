@@ -31,6 +31,7 @@ import org.w3c.dom.Element;
 public class NettyRpcReferenceParser implements BeanDefinitionParser {
     @Override
     public BeanDefinition parse(Element element, ParserContext parserContext) {
+    	// <nettyrpc:reference id="personManage" interfaceName="com.newlandframework.rpc.services.PersonManage" protocol="PROTOSTUFFSERIALIZE" ipAddr="${rpc.server.addr}" />
         String interfaceName = element.getAttribute("interfaceName");
         String id = element.getAttribute("id");
         String ipAddr = element.getAttribute("ipAddr");

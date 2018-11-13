@@ -27,7 +27,12 @@ import org.apache.commons.lang3.time.StopWatch;
  * @since 2017/7/27
  */
 public class MethodInvoker {
+	
     private Object serviceBean;
+    
+    /**
+     * 任务执行时间监视器
+     */
     private StopWatch sw = new StopWatch();
 
     public Object getServiceBean() {
@@ -41,15 +46,15 @@ public class MethodInvoker {
     public Object invoke(MessageRequest request) throws Throwable {
         String methodName = request.getMethodName();
         Object[] parameters = request.getParametersVal();
-        sw.reset();
-        sw.start();
+        sw.reset(); // 重置计时
+        sw.start(); // 开始计时
         Object result = MethodUtils.invokeMethod(serviceBean, methodName, parameters);
-        sw.stop();
+        sw.stop(); //停止计时
         return result;
     }
 
     public long getInvokeTimespan() {
-        return sw.getTime();
+        return sw.getTime(); // 统计从start到现在的计时
     }
 }
 

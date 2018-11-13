@@ -25,8 +25,10 @@ import java.util.List;
  * @since 2017/10/12
  */
 public interface ModuleMetricsVisitorMXBean {
+	
     List<ModuleMetricsVisitor> getModuleMetricsVisitor();
 
     void addModuleMetricsVisitor(ModuleMetricsVisitor visitor);
+    
 }
 

@@ -54,8 +54,7 @@ public class NettyRpcService implements ApplicationContextAware, ApplicationList
     }
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext)
-            throws BeansException {
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
         applicationContext.publishEvent(new ServerStartEvent(new Object()));
     }

@@ -25,6 +25,7 @@ import java.lang.reflect.Method;
  * @since 2017/8/30
  */
 public interface Invocation {
+	
     Object[] getArguments();
 
     Method getMethod();
@@ -32,5 +33,6 @@ public interface Invocation {
     Object getProxy();
 
     Object proceed() throws Throwable;
+    
 }
 

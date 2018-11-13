@@ -27,6 +27,8 @@ import java.util.Map;
  * @since 2016/10/7
  */
 public interface NettyRpcRecvHandler {
+	
     void handle(Map<String, Object> handlerMap, ChannelPipeline pipeline);
+    
 }
 

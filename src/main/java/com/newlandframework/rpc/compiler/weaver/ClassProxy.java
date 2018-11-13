@@ -25,8 +25,10 @@ import com.newlandframework.rpc.compiler.intercept.Interceptor;
  * @since 2017/8/30
  */
 public interface ClassProxy {
+	
     <T> T createProxy(Object target, Interceptor interceptor, Class<?>... proxyClasses);
 
     <T> T createProxy(ClassLoader classLoader, Object target, Interceptor interceptor, Class<?>... proxyClasses);
+    
 }
 

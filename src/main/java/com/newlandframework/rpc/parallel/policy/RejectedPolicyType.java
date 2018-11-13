@@ -23,10 +23,27 @@ package com.newlandframework.rpc.parallel.policy;
  * @since 2016/10/7
  */
 public enum RejectedPolicyType {
+	/**
+	 * ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常。 
+	 */
     ABORT_POLICY("AbortPolicy"),
+    
+    /**
+     * ThreadPoolExecutor.DiscardPolicy：也是丢弃任务，但是不抛出异常。 
+     */
     BLOCKING_POLICY("BlockingPolicy"),
+    
+    /**
+     * ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务 
+     */
     CALLER_RUNS_POLICY("CallerRunsPolicy"),
+    
+    /**
+     * ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，执行后面的任务
+     */
     DISCARDED_POLICY("DiscardedPolicy"),
+    
+    
     REJECTED_POLICY("RejectedPolicy");
 
     private String value;

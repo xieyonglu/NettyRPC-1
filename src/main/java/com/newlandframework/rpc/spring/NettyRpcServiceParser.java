@@ -31,6 +31,7 @@ import org.w3c.dom.Element;
 public class NettyRpcServiceParser implements BeanDefinitionParser {
     @Override
     public BeanDefinition parse(Element element, ParserContext parserContext) {
+    	// <nettyrpc:service id="demoAddService" interfaceName="com.newlandframework.rpc.services.AddCalculate" ref="calcAddService" />
         String interfaceName = element.getAttribute("interfaceName");
         String ref = element.getAttribute("ref");
         String filter = element.getAttribute("filter");

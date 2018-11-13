@@ -23,6 +23,8 @@ package com.newlandframework.rpc.compiler.weaver;
  * @since 2017/8/30
  */
 public interface Transformer {
+	
     Class<?> transform(ClassLoader classLoader, Class<?>... proxyClasses);
+    
 }
 

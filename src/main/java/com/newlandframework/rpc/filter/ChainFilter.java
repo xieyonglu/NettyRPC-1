@@ -26,6 +26,8 @@ import com.newlandframework.rpc.model.MessageRequest;
  * @since 2018/1/31
  */
 public interface ChainFilter {
+	
     Object invoke(ModuleInvoker<?> invoker, MessageRequest request) throws Throwable;
+    
 }
 

@@ -25,6 +25,8 @@ import io.netty.channel.ChannelPipeline;
  * @since 2016/10/7
  */
 public interface RpcSerializeFrame {
+	
     void select(RpcSerializeProtocol protocol, ChannelPipeline pipeline);
+    
 }
 

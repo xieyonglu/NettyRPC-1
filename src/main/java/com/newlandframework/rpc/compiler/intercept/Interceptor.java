@@ -23,6 +23,8 @@ package com.newlandframework.rpc.compiler.intercept;
  * @since 2017/8/30
  */
 public interface Interceptor {
+	
     Object intercept(Invocation invocation) throws Throwable;
+    
 }
 

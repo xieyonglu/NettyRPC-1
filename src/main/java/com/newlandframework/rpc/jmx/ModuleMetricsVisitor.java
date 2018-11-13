@@ -15,11 +15,6 @@
  */
 package com.newlandframework.rpc.jmx;
 
-import com.alibaba.druid.util.Histogram;
-import com.newlandframework.rpc.core.RpcSystemConfig;
-
-import javax.management.JMException;
-import javax.management.openmbean.*;
 import java.beans.ConstructorProperties;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -29,6 +24,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLongFieldUpdater;
+
+import javax.management.JMException;
+import javax.management.openmbean.CompositeData;
+import javax.management.openmbean.CompositeDataSupport;
+import javax.management.openmbean.CompositeType;
+import javax.management.openmbean.OpenType;
+import javax.management.openmbean.SimpleType;
+
+import com.alibaba.druid.util.Histogram;
+import com.newlandframework.rpc.core.RpcSystemConfig;
 
 /**
  * @author tangjie<https://github.com/tang-jie>

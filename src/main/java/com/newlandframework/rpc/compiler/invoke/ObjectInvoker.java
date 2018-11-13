@@ -25,6 +25,8 @@ import java.lang.reflect.Method;
  * @since 2017/8/30
  */
 public interface ObjectInvoker {
+	
     Object invoke(Object proxy, Method method, Object... arguments) throws Throwable;
+    
 }
 

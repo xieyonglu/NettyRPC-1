@@ -25,10 +25,12 @@ import com.newlandframework.rpc.model.MessageRequest;
  * @since 2018/1/31
  */
 public interface ModuleInvoker<T> {
+	
     Class<T> getInterface();
 
     Object invoke(MessageRequest request) throws Throwable;
 
     void destroy();
+    
 }
 

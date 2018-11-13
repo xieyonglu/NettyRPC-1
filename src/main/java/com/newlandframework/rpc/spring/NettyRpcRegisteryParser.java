@@ -31,6 +31,7 @@ import org.w3c.dom.Element;
 public class NettyRpcRegisteryParser implements BeanDefinitionParser {
     @Override
     public BeanDefinition parse(Element element, ParserContext parserContext) {
+    	// <nettyrpc:registry id="rpcRegistry" ipAddr="${rpc.server.addr}" echoApiPort="${rpc.server.echo.api.port}" protocol="PROTOSTUFFSERIALIZE" />
         String id = element.getAttribute("id");
         String ipAddr = element.getAttribute("ipAddr");
         String echoApiPort = element.getAttribute("echoApiPort");

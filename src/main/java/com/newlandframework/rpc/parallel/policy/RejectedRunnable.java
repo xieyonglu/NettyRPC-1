@@ -23,5 +23,7 @@ package com.newlandframework.rpc.parallel.policy;
  * @since 2016/10/7
  */
 public interface RejectedRunnable extends Runnable {
+	
     void rejected();
+    
 }

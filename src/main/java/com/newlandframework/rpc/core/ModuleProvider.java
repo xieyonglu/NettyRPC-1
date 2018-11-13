@@ -23,8 +23,10 @@ package com.newlandframework.rpc.core;
  * @since 2018/1/31
  */
 public interface ModuleProvider<T> {
+	
     ModuleInvoker<T> getInvoker();
 
     void destoryInvoker();
+    
 }
 
