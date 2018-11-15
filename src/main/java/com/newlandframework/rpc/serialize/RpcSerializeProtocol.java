@@ -37,7 +37,7 @@ public enum RpcSerializeProtocol {
 
     @Override
     public String toString() {
-        ReflectionToStringBuilder.setDefaultStyle(ToStringStyle.SHORT_PREFIX_STYLE);
+        ReflectionToStringBuilder.setDefaultStyle(ToStringStyle.SHORT_PREFIX_STYLE); // 截去了包名
         return ReflectionToStringBuilder.toString(this);
     }
 

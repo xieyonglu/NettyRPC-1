@@ -35,6 +35,10 @@ import io.netty.channel.ChannelPipeline;
  * @since 2016/10/7
  */
 public class RpcSendSerializeFrame implements RpcSerializeFrame {
+	
+	/**
+	 * ClassToInstanceMap -> Class作为Key, 对应实例作为Value
+	 */
     private static ClassToInstanceMap<NettyRpcSendHandler> handler = MutableClassToInstanceMap.create();
 
     static {

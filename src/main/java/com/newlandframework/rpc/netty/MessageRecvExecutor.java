@@ -15,13 +15,40 @@
  */
 package com.newlandframework.rpc.netty;
 
+import java.nio.channels.spi.SelectorProvider;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.logging.Level;
+
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
-
+import com.newlandframework.rpc.compiler.AccessAdaptiveProvider;
+import com.newlandframework.rpc.core.AbilityDetailProvider;
+import com.newlandframework.rpc.core.RpcSystemConfig;
 import com.newlandframework.rpc.jmx.ModuleMetricsHandler;
+import com.newlandframework.rpc.model.MessageKeyVal;
+import com.newlandframework.rpc.model.MessageRequest;
+import com.newlandframework.rpc.model.MessageResponse;
+import com.newlandframework.rpc.netty.resolver.ApiEchoResolver;
+import com.newlandframework.rpc.parallel.NamedThreadFactory;
+import com.newlandframework.rpc.parallel.RpcThreadPool;
+import com.newlandframework.rpc.serialize.RpcSerializeProtocol;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -30,34 +57,6 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-
-import java.nio.channels.spi.SelectorProvider;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ExecutorCompletionService;
-import java.util.logging.Level;
-
-import com.newlandframework.rpc.core.RpcSystemConfig;
-import com.newlandframework.rpc.parallel.NamedThreadFactory;
-import com.newlandframework.rpc.parallel.RpcThreadPool;
-import com.newlandframework.rpc.model.MessageKeyVal;
-import com.newlandframework.rpc.model.MessageRequest;
-import com.newlandframework.rpc.model.MessageResponse;
-import com.newlandframework.rpc.serialize.RpcSerializeProtocol;
-import com.newlandframework.rpc.compiler.AccessAdaptiveProvider;
-import com.newlandframework.rpc.core.AbilityDetailProvider;
-import com.newlandframework.rpc.netty.resolver.ApiEchoResolver;
-
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
 /**
  * @author tangjie<https://github.com/tang-jie>
@@ -130,7 +129,7 @@ public class MessageRecvExecutor implements ApplicationContextAware {
             MessageKeyVal keyVal = (MessageKeyVal) ctx.getBean(Class.forName("com.newlandframework.rpc.model.MessageKeyVal"));
             Map<String, Object> rpcServiceObject = keyVal.getMessageKeyVal();
 
-            Set s = rpcServiceObject.entrySet();
+            Set<Map.Entry<String, Object>> s = rpcServiceObject.entrySet();
             Iterator<Map.Entry<String, Object>> it = s.iterator();
             Map.Entry<String, Object> entry;
 
