@@ -1,5 +1,32 @@
-/.settings/
-/bin/
-/target/
-/.classpath
-/.project
+# Maven files
+target/
+
+# IntelliJ project files
+.idea/
+.vscode/
+.history/
+*.ipr
+*.iws
+*.iml
+
+# Eclipse project files
+.metadata/
+.settings/
+.classpath
+.project
+.externalToolBuilders
+
+# Mac DS_Store files
+.DS_Store
+
+# Editors temporary files
+*~
+\#*\#
+*.swp
+*.swn
+*.swo
+*.bak
+
+# Log files
+*.log
+/sql/
